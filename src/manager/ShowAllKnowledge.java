@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.maker.entity.KnowledgeEntity;
 import com.maker.service.KnowledgeService;
+import com.maker.utils.PageResult;
 
 /**
  * Servlet implementation class ShowAllKnowledge
  */
-@WebServlet("/ShowAllKnowledge")
+@WebServlet("/showall")
 public class ShowAllKnowledge extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,7 +35,8 @@ public class ShowAllKnowledge extends HttpServlet {
 		// 获得我的所有知识
 				KnowledgeService service = new KnowledgeService();
 				try {
-					//int id = Integer.valueOf(request.getParameter("id")); 
+					//int id = Integer.valueOf(request.getParameter("id"));
+					
 					List<KnowledgeEntity> list = service.getAll();
 					if(list.size()>0){
 						request.setAttribute("knowledgelist", list);

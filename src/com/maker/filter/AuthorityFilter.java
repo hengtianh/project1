@@ -17,7 +17,7 @@ import com.maker.constant.Keys;
 /**
  * Servlet Filter implementation class AuthorityFilter
  */
-@WebFilter("/AuthorityFilter")
+@WebFilter("/authority")
 public class AuthorityFilter implements Filter {
 
     /**

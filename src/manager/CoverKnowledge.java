@@ -15,7 +15,7 @@ import com.maker.service.KnowledgeService;
 /**
  * Servlet implementation class CoverKnowledge
  */
-@WebServlet("/CoverKnowledge")
+@WebServlet("/cover")
 public class CoverKnowledge extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

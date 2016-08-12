@@ -17,7 +17,7 @@ import com.maker.service.KnowledgeService;
 /**
  * Servlet implementation class LoadKnowledgeServlet
  */
-@WebServlet("/LoadKnowledgeServlet")
+@WebServlet("/loadknowledge")
 public class LoadKnowledgeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -49,7 +49,7 @@ public class LoadKnowledgeServlet extends HttpServlet {
 			if(entity!=null){
 				request.setAttribute("edit", entity);
 			}
-			request.getRequestDispatcher("login/editknowledge.jsp").forward(request, response);
+			request.getRequestDispatcher("logined/editknowledge.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

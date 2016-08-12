@@ -13,7 +13,7 @@ import com.maker.service.KnowledgeService;
 /**
  * Servlet implementation class EditKnowledgeServlet
  */
-@WebServlet("/EditKnowledgeServlet")
+@WebServlet("/editknowledge")
 public class EditKnowledgeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,7 +46,7 @@ public class EditKnowledgeServlet extends HttpServlet {
 			entity.setLabel(label);
 			entity.setContent(content);
 			service.update(entity);
-			response.sendRedirect("login/myknowledge.jsp");
+			response.sendRedirect("logined/myknowledge.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

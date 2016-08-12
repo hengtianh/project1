@@ -13,11 +13,13 @@ import javax.servlet.annotation.WebFilter;
 
 import com.maker.entity.KnowledgeEntity;
 import com.maker.service.KnowledgeService;
+import com.maker.utils.PageResult;
+import com.maker.utils.PageUtils;
 
 /**
  * Servlet Filter implementation class IndexFilter
  */
-@WebFilter("/IndexFilter")
+@WebFilter("/indexfilter")
 public class IndexFilter implements Filter {
 
     /**
@@ -39,19 +41,23 @@ public class IndexFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-		//使用过滤器实现访问首页是加载所有知识列表
-		KnowledgeService service = new KnowledgeService();
-		try {
-			List<KnowledgeEntity> list =  service.getAll();
-			if(list.size()>0){
-				request.setAttribute("knowledgelist", list);
-				//System.out.println("过滤index");
-			}else{
-				//request.setAttribute();
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
+		//request.getRequestDispatcher("PageUtil").forward(request, response);
+		String tempIndex = request.getParameter("pageIndex");
+		String tempWhere = request.getParameter("where");
+		request.setAttribute("where", tempWhere);
+		if(tempWhere!=null){
+			tempWhere = " where label like '"+tempWhere+"'";
+		}else{
+			tempWhere = null;
 		}
+		
+		
+		//int pageIndex = 1;
+		//String where = null;
+		PageUtils pageUtils = new PageUtils();
+		PageResult<KnowledgeEntity> pages = pageUtils.getPageResult(tempIndex, tempWhere);
+		request.setAttribute("pages", pages);
+		
 		chain.doFilter(request, response);
 	}
 

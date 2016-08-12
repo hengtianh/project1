@@ -15,7 +15,7 @@ import com.maker.service.CollectionService;
 /**
  * Servlet implementation class CollectionServlet
  */
-@WebServlet("/CollectionServlet")
+@WebServlet("/collection")
 public class CollectionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

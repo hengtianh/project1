@@ -10,7 +10,7 @@
 <script type="text/javascript" src="js/my.js"></script>
 </head>
 <body>
-<form id="knowledgeform" method="get" action="">
+<form id="knowledgeform" enctype="multipart/form-data" method="post" action="">
   <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
       <td height="40" colspan="2" align="center" class="f14white">添加知识 </td>
@@ -36,6 +36,11 @@
       <td height="60" align="center" bgcolor="#CCCCCC" class="f14white">知识内容</td>
       <td height="60"><label for="content"></label>
       <textarea name="content" onblur="checkContent();" class="alltext" id="content" cols="45" rows="15"></textarea></td>
+    </tr>
+    <tr>
+      <td height="60" align="center" bgcolor="#CCCCCC" class="f14white">添加附件</td>
+      <td height="60"><label for="content"></label>
+      <input type="file" name="attach" class="alltext" id="content"></td>
     </tr>
     <tr>
       <td height="60">&nbsp;</td>

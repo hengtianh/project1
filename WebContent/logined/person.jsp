@@ -10,7 +10,7 @@
 <script type="text/javascript" src="js/my.js"></script>
 </head>
 <body>
-<form id="settingform" method="post" action="${pageContext.request.contextPath}/setting">
+<form id="settingform" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/setting">
 
   <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
@@ -20,7 +20,7 @@
       <td width="25%" height="60" align="center" bgcolor="#CCCCCC" class="f14white">用户名</td>
       <td width="75%" height="60"><label for="category"></label>
         <label for="username"></label>
-      <input type="text" name="username" id="username" value="${sessionScope.user.userName}"></td>
+      <input type="text" name="username" id="username" value="${sessionScope.user.userName}" readonly="readonly"></td>
     </tr>
     <tr>
       <td height="60" align="center" bgcolor="#CCCCCC" class="f14white">昵称</td>
@@ -28,7 +28,7 @@
     </tr>
     <tr>
       <td height="60" align="center" bgcolor="#CCCCCC" class="f14white">头像</td>
-      <td height="60"><input name="headerImage" type="hidden" class="addinput" id="lable" onblur="checkLabel();" readonly="readonly"></td>
+      <td height="60"><input name="headerImage" type="file" class="addinput" id="lable" onblur="checkLabel();" readonly="readonly"></td>
     </tr>
     <tr>
       <td height="60" align="center" bgcolor="#CCCCCC" class="f14white">自我介绍</td>

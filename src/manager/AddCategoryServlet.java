@@ -13,7 +13,7 @@ import com.maker.service.CategoryService;
 /**
  * Servlet implementation class AddCategoryServlet
  */
-@WebServlet("/AddCategoryServlet")
+@WebServlet("/addcategory")
 public class AddCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

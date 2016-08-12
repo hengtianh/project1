@@ -15,7 +15,7 @@ import com.maker.service.CategoryService;
 /**
  * Servlet implementation class LoadCategory
  */
-@WebServlet("/LoadCategory")
+@WebServlet("/loadcategory")
 public class LoadCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,7 +43,7 @@ public class LoadCategoryServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		request.getRequestDispatcher("login/addknowledge.jsp").forward(request, response);
+		request.getRequestDispatcher("logined/addknowledge.jsp").forward(request, response);
 	}
 
 	/**

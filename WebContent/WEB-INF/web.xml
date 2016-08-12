@@ -1,186 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-  <servlet>
-    <servlet-name>Register</servlet-name>
-    <servlet-class>com.maker.servlet.userinfo.RegisterServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Register</servlet-name>
-    <url-pattern>/register</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Login</servlet-name>
-    <servlet-class>com.maker.servlet.userinfo.LoginServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Login</servlet-name>
-    <url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>AutoLogin</servlet-name>
-    <servlet-class>com.maker.servlet.userinfo.AutoLoginServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AutoLogin</servlet-name>
-    <url-pattern>/autologin</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Logout</servlet-name>
-    <servlet-class>com.maker.servlet.userinfo.LogoutServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Logout</servlet-name>
-    <url-pattern>/logout</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Addknowledge</servlet-name>
-    <servlet-class>com.maker.servlet.knowledge.AddKnowledgeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Addknowledge</servlet-name>
-    <url-pattern>/addknowledge</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Loadcategory</servlet-name>
-    <servlet-class>com.maker.servlet.knowledge.LoadCategoryServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Loadcategory</servlet-name>
-    <url-pattern>/loadcategory</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ShowKnowledge</servlet-name>
-    <servlet-class>com.maker.servlet.knowledge.ShowKnowledgeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ShowKnowledge</servlet-name>
-    <url-pattern>/showknowledge</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ShowDetail</servlet-name>
-    <servlet-class>com.maker.servlet.knowledge.ShowDetailServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ShowDetail</servlet-name>
-    <url-pattern>/showdetail</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>DeleteKnowledge</servlet-name>
-    <servlet-class>com.maker.servlet.knowledge.DeleteKnowledgeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DeleteKnowledge</servlet-name>
-    <url-pattern>/deleteknowledge</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>LoadKnowledge</servlet-name>
-    <servlet-class>com.maker.servlet.knowledge.LoadKnowledgeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LoadKnowledge</servlet-name>
-    <url-pattern>/loadknowledge</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>EditKnowledge</servlet-name>
-    <servlet-class>com.maker.servlet.knowledge.EditKnowledgeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>EditKnowledge</servlet-name>
-    <url-pattern>/editknowledge</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>DingCai</servlet-name>
-    <servlet-class>com.maker.servlet.knowledge.DingCaiServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DingCai</servlet-name>
-    <url-pattern>/dingorcai</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Search</servlet-name>
-    <servlet-class>com.maker.servlet.knowledge.SearchServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Search</servlet-name>
-    <url-pattern>/search</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Setting</servlet-name>
-    <servlet-class>com.maker.servlet.userinfo.SettingServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Setting</servlet-name>
-    <url-pattern>/setting</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Collection</servlet-name>
-    <servlet-class>com.maker.servlet.userinfo.CollectionServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Collection</servlet-name>
-    <url-pattern>/collection</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ShowCollection</servlet-name>
-    <servlet-class>com.maker.servlet.userinfo.ShowCollectionServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ShowCollection</servlet-name>
-    <url-pattern>/showcollection</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ShowAll</servlet-name>
-    <servlet-class>manager.ShowAllKnowledge</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ShowAll</servlet-name>
-    <url-pattern>/showall</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Showdetail</servlet-name>
-    <servlet-class>manager.ShowDetail</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Showdetail</servlet-name>
-    <url-pattern>/showdetails</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>AddCategory</servlet-name>
-    <servlet-class>manager.AddCategoryServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddCategory</servlet-name>
-    <url-pattern>/addcategory</url-pattern>
-  </servlet-mapping>
-  
-    <servlet>
-    <servlet-name>Cover</servlet-name>
-    <servlet-class>manager.CoverKnowledge</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Cover</servlet-name>
-    <url-pattern>/cover</url-pattern>
-  </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <filter>
-    <filter-name>encoding</filter-name>
+    <filter-name>encodingfilter</filter-name>
     <filter-class>com.maker.filter.EncodingFilter</filter-class>
+    <init-param>
+      <param-name>encode</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
   </filter>
   <filter-mapping>
-    <filter-name>encoding</filter-name>
+    <filter-name>encodingfilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   <filter>
-    <filter-name>index</filter-name>
+    <filter-name>indexfilter</filter-name>
     <filter-class>com.maker.filter.IndexFilter</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>index</filter-name>
+    <filter-name>indexfilter</filter-name>
     <url-pattern>/index.jsp</url-pattern>
     <dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
     <dispatcher>INCLUDE</dispatcher>
   </filter-mapping>
-  <welcome-file-list>
-    <welcome-file>autologin</welcome-file>
-  </welcome-file-list>
+  <filter>
+    <filter-name>Authority</filter-name>
+    <filter-class>com.maker.filter.AuthorityFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Authority</filter-name>
+    <url-pattern>/logined/*</url-pattern>
+  </filter-mapping>
 </web-app>

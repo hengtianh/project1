@@ -55,3 +55,8 @@ a{ text-decoration:none; font:14px gray 微软雅黑;}
 .ding{ width:80px; height:30px; background-color:#F90; display:block; text-align:center; padding-top:15px;}
 .num{ width:80px; height:30px; background-color:#F90; display:block; text-align:center;}
 /*.fontP{font-family: 微软雅黑; font-size: 24px !important;}*/
+
+/*验证码的框*/
+.codevalue{ width:80px; margin-left:25px;}
+.code{ margin-left:0;}
+.codestyle{ padding-left:30px;}

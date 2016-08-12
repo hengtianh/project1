@@ -13,7 +13,7 @@ import com.maker.service.KnowledgeService;
 /**
  * Servlet implementation class DingCaiServlet
  */
-@WebServlet("/DingCaiServlet")
+@WebServlet("/dingorcai")
 public class DingCaiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -18,7 +18,7 @@ import com.maker.service.CollectionService;
 /**
  * Servlet implementation class ShowCollectionServlet
  */
-@WebServlet("/ShowCollectionServlet")
+@WebServlet("/showcollection")
 public class ShowCollectionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,7 +43,7 @@ public class ShowCollectionServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		request.getRequestDispatcher("login/mycollection.jsp").forward(request, response);
+		request.getRequestDispatcher("logined/mycollection.jsp").forward(request, response);
 	}
 
 	/**

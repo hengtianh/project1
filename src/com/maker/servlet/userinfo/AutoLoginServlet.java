@@ -20,6 +20,7 @@ import com.maker.service.KnowledgeService;
 import com.maker.service.UserInfoService;
 
 
+@WebServlet("/autologin")
 public class AutoLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

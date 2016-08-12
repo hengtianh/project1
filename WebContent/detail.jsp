@@ -52,6 +52,15 @@
         </td>
       </tr>
       <tr>
+        <td colspan="4" rowspan="1" bgcolor="#FFFFFF">
+        <p>附件：</p>
+        <c:forEach var="a" items="${requestScope.attachment }" varStatus="vs">
+        	<a href="${pageContext.request.contextPath }/DownloadServlet?path=${a.attachPath }">附件${vs.count }</a>
+        </c:forEach>
+        
+        </td>
+      </tr>
+      <tr>
         <td width="40%" align="right" bgcolor="#FFFFFF"></td>
         <td width="10%" align="right" bgcolor="#FFFFFF">
         <div class="ding fontP"><a href="dingorcai?id=${requestScope.detail.id}&method=ding" style="font:25px 微软雅黑; color:white;">顶</a></div>

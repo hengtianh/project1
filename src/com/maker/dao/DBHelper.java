@@ -17,7 +17,9 @@ public final class DBHelper {
 	private Connection getConnection() throws Exception{
 		
 		Class.forName(driver);
+		
 		return DriverManager.getConnection(url, username, password);
+		
 	}
 	
 	public void setParam(PreparedStatement pstmt, Object ...params) throws Exception{

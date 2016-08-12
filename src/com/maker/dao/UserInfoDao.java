@@ -2,7 +2,6 @@ package com.maker.dao;
 
 import java.sql.ResultSet;
 
-import com.maker.entity.KnowledgeEntity;
 import com.maker.entity.UserInfoEntity;
 
 public class UserInfoDao {

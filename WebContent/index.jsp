@@ -11,7 +11,7 @@ body{ background-color: #f5f5f5;}
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<table width="100%" bgcolor="#333"><tr><td align="center"><%@ include file="/login/header.jsp"%></td></tr></table>
+<table width="100%" bgcolor="#333"><tr><td align="center"><%@ include file="/logined/header.jsp"%></td></tr></table>
 <div class="container">
 	<div class="body">
 	    <div class="space"></div>

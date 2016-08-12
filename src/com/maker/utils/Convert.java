@@ -5,7 +5,6 @@ import java.util.Date;
 
 public final class Convert {
 	
-	@SuppressWarnings("deprecation")
 	public static String DateConveret(Date date,String pattern){
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);

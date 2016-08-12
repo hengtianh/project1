@@ -14,7 +14,7 @@
 	    <td height="10" bgcolor="#CCCCCC">&nbsp;</td>
     </tr>
 	  <tr>
-	    <td width="180" height="50" bgcolor="#CCCCCC"><div align="center"><img src="${pageContext.request.contextPath}/headerimages/userdefault.gif" alt="" width="100" height="100"></div></td>
+	    <td width="180" height="50" bgcolor="#CCCCCC"><div align="center"><img width="100" height="100" src="${pageContext.request.contextPath}/headerimages/${sessionScope.user.headerImage}" alt="" width="100" height="100"></div></td>
 	  </tr>
 	  <tr>
 	    <td width="180" height="20" align="center" bgcolor="#CCCCCC">${sessionScope.user.userName}</td>
@@ -32,7 +32,7 @@
 	    <td height="5" align="center" bgcolor="#CCCCCC"><hr></td>
 	  </tr>
 	  <tr>
-	    <td height="25" align="center" bgcolor="#CCCCCC"><a href="showcollection" class="f14white">我的收藏</a></td>
+	    <td height="25" align="center" bgcolor="#CCCCCC"><a href="${pageContext.request.contextPath}/showcollection" class="f14white">我的收藏</a></td>
 	  </tr>
 	  <tr>
 	    <td height="5" align="center" bgcolor="#CCCCCC"><hr></td>

@@ -13,7 +13,7 @@ import com.maker.service.KnowledgeService;
 /**
  * Servlet implementation class ShowDetail
  */
-@WebServlet(name = "ShowDetails", urlPatterns = { "/ShowDetails" })
+@WebServlet("/showdetail")
 public class ShowDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

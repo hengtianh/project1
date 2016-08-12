@@ -12,7 +12,7 @@ import com.maker.service.KnowledgeService;
 /**
  * Servlet implementation class DeleteKnowledgeServlet
  */
-@WebServlet("/DeleteKnowledgeServlet")
+@WebServlet("/deleteknowledge")
 public class DeleteKnowledgeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
