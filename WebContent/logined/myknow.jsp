@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@taglib uri="http://com.maker.pagetag" prefix="p"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,7 +31,8 @@
   
     <tr>
   <td colspan="3">
-  <form action="showknowledge?id=${uid}" method="get">
+  <p:page pages="${pages.pages }" actionName="showknowledge" pageCount="${pages.pageCount }" pageIndex="${pages.pageIndex }" where="${uid }"/>
+<%--   <form action="showknowledge?id=${uid}" method="get">
 	  <table width="100%" align="center" cellspacing="0" cellpadding="0" style="margin:5px 0 5px 0;">
 	    <tr>
 		    <td width="500" height="20" align="center"><a href="showknowledge?pageIndex=1<c:if test="${!empty uid }">&id=${uid}</c:if>">首页</a> <a href="showknowledge?pageIndex=${requestScope.pages.pageIndex-1}<c:if test="${!empty uid }">&id=${uid}</c:if>">上一页
@@ -46,7 +48,7 @@
 		    <td width="30" height="20" align="left"><input type="submit" value="GO"></td>
 		</tr>
 		</table>
-	</form>
+	</form> --%>
 	</td>
  	</tr>
   </c:if>

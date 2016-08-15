@@ -26,7 +26,7 @@
 	    <td height="0" align="center" bgcolor="#CCCCCC">&nbsp;</td>
 	  </tr>
 	  <tr>
-	    <td height="25" align="center" bgcolor="#CCCCCC"><a href="${pageContext.request.contextPath}/showknowledge?id=${sessionScope.user.id}" class="f14white">我的知识</a></td>
+	    <td height="25" align="center" bgcolor="#CCCCCC"><a href="${pageContext.request.contextPath}/showknowledge?where=${sessionScope.user.id}" class="f14white">我的知识</a></td>
 	  </tr>
 	  <tr>
 	    <td height="5" align="center" bgcolor="#CCCCCC"><hr></td>

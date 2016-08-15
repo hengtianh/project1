@@ -32,7 +32,7 @@ public class ShowKnowledgeServlet extends HttpServlet {
 		// 获得我的所有知识
 		KnowledgeService service = new KnowledgeService();
 		try {
-			int id = Integer.valueOf(request.getParameter("id")); 
+			int id = Integer.valueOf(request.getParameter("where")); 
 			String pageIndex = request.getParameter("pageIndex");
 			String where = " where uid=" + id;
 			
