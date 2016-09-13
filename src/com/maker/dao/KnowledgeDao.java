@@ -6,6 +6,8 @@ import java.util.List;
 
 import com.maker.entity.Attachment;
 import com.maker.entity.KnowledgeEntity;
+import com.maker.entity.OptionLogEntity;
+import com.maker.mapper.impl.KnowledgeRowMapper;
 import com.maker.utils.PageResult;
 
 public class KnowledgeDao {
@@ -17,13 +19,15 @@ public class KnowledgeDao {
 	 * @return 受影响行数
 	 * @throws Exception 
 	 */
-	public int add(KnowledgeEntity kEntity) throws Exception{
+	public int add(KnowledgeEntity kEntity,OptionLogEntity olog) throws Exception{
 		int i=0;
+		helper.beginTrans();
 		try{
-			String sql = "INSERT INTO k_nowledge"
+			String sql1 = "INSERT INTO k_nowledge"
 						+ "(title,content,pubDate,cid,label,readCount,ding,cai,uid,state,stateUid) "
 							+ "	VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-			Object[] params = new Object[]{
+			String sql2 = "INSERT INTO optionlog(optionDate,optionDes) VALUES(?,?)";
+			Object[] params1 = new Object[]{
 					kEntity.getTitle(),
 					kEntity.getContent(),
 					kEntity.getPubDate(),
@@ -36,8 +40,11 @@ public class KnowledgeDao {
 					kEntity.getState(),
 					kEntity.getStateUid()
 					};
-			i = helper.executeUpdate(sql, params);
+			i = helper.executeUpdate(sql1, params1);
+			i+=helper.executeUpdate(sql2, olog.getOptionDate(),olog.getOptionDes());
+			helper.commitTrans();
 		}catch(Exception e){
+			helper.rollBackTrans();
 			throw e;
 		}finally{
 			helper.release();
@@ -102,8 +109,12 @@ public class KnowledgeDao {
 		KnowledgeEntity kEntity = null;
 		try{
 			String sql = "select * from k_nowledge where id=?";
-			ResultSet rs = helper.executeQuery(sql, id);
-			while(rs.next()){
+			List<KnowledgeEntity> list = helper.executeQuery(new KnowledgeRowMapper() ,sql , id);
+			if(list.size()>0){
+				kEntity = list.get(0);
+			}
+			
+			/*while(rs.next()){
 				kEntity = new KnowledgeEntity();
 				kEntity.setId(rs.getInt("id"));
 				kEntity.setTitle(rs.getString("title"));
@@ -119,7 +130,7 @@ public class KnowledgeDao {
 				kEntity.setStateUid(rs.getInt("stateUid"));
 				kEntity.setCid(rs.getInt("cid"));
 				kEntity.setUid(rs.getInt("uid"));
-			}
+			}*/
 		}catch(Exception e){
 			throw e;
 		}finally{
@@ -136,8 +147,10 @@ public class KnowledgeDao {
 		List<KnowledgeEntity> list = new ArrayList<KnowledgeEntity>();
 		try {
 			String sql = "select * from k_nowledge where uid=?";
-			ResultSet rs = helper.executeQuery(sql,id);
-			while(rs.next()){
+			list = helper.executeQuery(new KnowledgeRowMapper(),sql,id);
+			
+			
+			/*while(rs.next()){
 				KnowledgeEntity kEntity = new KnowledgeEntity();
 				kEntity.setId(rs.getInt("id"));
 				kEntity.setTitle(rs.getString("title"));
@@ -154,7 +167,7 @@ public class KnowledgeDao {
 				kEntity.setCid(rs.getInt("cid"));
 				kEntity.setUid(rs.getInt("uid"));
 				list.add(kEntity);
-			}
+			}*/
 		} catch (Exception e) {
 			throw e;
 		}finally{
@@ -178,8 +191,10 @@ public class KnowledgeDao {
 			}
 			sql = sql + " limit ?,?";
 			
-			ResultSet rs = helper.executeQuery(sql,(pages.getPageIndex()-1)*pages.getPageSize(),pages.getPageSize());
-			while(rs.next()){
+			list = helper.executeQuery(new KnowledgeRowMapper(),sql,(pages.getPageIndex()-1)*pages.getPageSize(),pages.getPageSize());
+			
+			
+			/*while(rs.next()){
 				KnowledgeEntity kEntity = new KnowledgeEntity();
 				kEntity.setId(rs.getInt("id"));
 				kEntity.setTitle(rs.getString("title"));
@@ -196,7 +211,7 @@ public class KnowledgeDao {
 				kEntity.setCid(rs.getInt("cid"));
 				kEntity.setUid(rs.getInt("uid"));
 				list.add(kEntity);
-			}
+			}*/
 		} catch (Exception e) {
 			throw e;
 		}finally{
@@ -214,8 +229,10 @@ public class KnowledgeDao {
 		try {
 			String sql = "select * from k_nowledge";
 			
-			ResultSet rs = helper.executeQuery(sql);
-			while(rs.next()){
+			list = helper.executeQuery(new KnowledgeRowMapper(),sql);
+			
+			
+			/*while(rs.next()){
 				KnowledgeEntity kEntity = new KnowledgeEntity();
 				kEntity.setId(rs.getInt("id"));
 				kEntity.setTitle(rs.getString("title"));
@@ -232,7 +249,7 @@ public class KnowledgeDao {
 				kEntity.setCid(rs.getInt("cid"));
 				kEntity.setUid(rs.getInt("uid"));
 				list.add(kEntity);
-			}
+			}*/
 		} catch (Exception e) {
 			throw e;
 		}finally{
@@ -245,8 +262,10 @@ public class KnowledgeDao {
 		List<KnowledgeEntity> list = new ArrayList<KnowledgeEntity>();
 		try {
 			String sql = "select * from k_nowledge where label like '%"+key+"%'";
-			ResultSet rs = helper.executeQuery(sql);
-			while(rs.next()){
+			list = helper.executeQuery(new KnowledgeRowMapper(),sql);
+			
+			
+			/*while(rs.next()){
 				KnowledgeEntity entity = new KnowledgeEntity();
 				entity.setId(rs.getInt("id"));
 				entity.setTitle(rs.getString("title"));
@@ -263,7 +282,7 @@ public class KnowledgeDao {
 				entity.setCid(rs.getInt("cid"));
 				entity.setUid(rs.getInt("uid"));
 				list.add(entity);
-			}
+			}*/
 		} catch (Exception e) {
 			throw e;
 		}finally{
@@ -304,14 +323,16 @@ public class KnowledgeDao {
 		
 		try {
 			String sql = "SELECT * FROM k_attachment where kid=?";
-			ResultSet rs = helper.executeQuery(sql, kid);
-			while(rs.next()){
+			list = helper.executeQuery(new KnowledgeRowMapper(),sql, kid);
+			
+			
+			/*while(rs.next()){
 				Attachment attachment = new Attachment();
 				attachment.setId(rs.getInt("id"));
 				attachment.setKid(rs.getInt("kid"));
 				attachment.setAttachPath(rs.getString("attachPath"));
 				list.add(attachment);
-			}
+			}*/
 		} catch (Exception e) {
 			// TODO: handle exception
 		}finally{
@@ -338,6 +359,18 @@ public class KnowledgeDao {
 			helper.release();
 		}
 		return i;
+	}
+
+	public void deleteAll(String ids) throws Exception {
+		try {
+			String sql = "delete from k_nowledge where id in("+ids+")";
+			helper.executeUpdate(sql);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}finally{
+			helper.release();
+		}
 	}
 
 }

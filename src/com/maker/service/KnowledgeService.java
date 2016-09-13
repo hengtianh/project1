@@ -8,6 +8,7 @@ import com.maker.dao.UserInfoDao;
 import com.maker.entity.Attachment;
 import com.maker.entity.Category;
 import com.maker.entity.KnowledgeEntity;
+import com.maker.entity.OptionLogEntity;
 import com.maker.entity.UserInfoEntity;
 import com.maker.utils.PageResult;
 
@@ -16,8 +17,8 @@ public class KnowledgeService {
 	UserInfoDao userInfoDao = new UserInfoDao();
 	CategoryDao categoryDao = new CategoryDao();
 	
-	public int add(KnowledgeEntity kEntity) throws Exception{
-		return dao.add(kEntity);
+	public int add(KnowledgeEntity kEntity,OptionLogEntity optionLog) throws Exception{
+		return dao.add(kEntity,optionLog);
 	}
 	
 	public int update(KnowledgeEntity entity) throws Exception{
@@ -114,6 +115,10 @@ public class KnowledgeService {
 	public int getRecordCount(String where) throws Exception {
 		
 		return dao.getRecordCount(where);
+	}
+
+	public void deleteAll(String ids) throws Exception {
+		dao.deleteAll(ids);
 	}
 	
 }

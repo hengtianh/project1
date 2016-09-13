@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.maker.entity.UserInfoEntity;
 import com.maker.service.UserInfoService;
+import com.maker.utils.MD5;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
@@ -20,7 +21,7 @@ public class RegisterServlet extends HttpServlet {
 		String repeatPass = request.getParameter("repeatpass");
 		
 		//1.前端验证数据的有效性，再验证用户名是否占用
-		UserInfoEntity entity = new UserInfoEntity(userName, userPass);
+		UserInfoEntity entity = new UserInfoEntity(userName, MD5.createPassword(userPass));
 		UserInfoService service = new UserInfoService();
 		
 		try {

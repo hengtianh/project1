@@ -19,6 +19,30 @@ function checkEmail(){
 	}
 }
 
+function validateUser(){
+	var value = document.getElementById('username').value;
+	//获得ajax核心对象
+	var req = new XMLHttpRequest();
+	//设置请求的方式和url
+	req.open("post", "ValidateEmail", true);
+	//post方式需要设置请求头
+	req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	//发送请求
+	req.send("username="+value);
+	//设置响应的回调方法
+	//req.onreadystatechange();
+	req.onreadystatechange=function (){
+		HandleResp(req);
+	}
+}
+
+function HandleResp(req){
+	if(req.readyState==4){
+		var retValue = req.responseText;
+		var msg = document.getElementById('emaillabel').innerHTML=retValue;
+	}
+}
+
 function checkPass(){
 	var value = document.getElementById('userpass').value;
 	var msg = document.getElementById('passlabel');

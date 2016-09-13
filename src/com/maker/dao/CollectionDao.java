@@ -1,10 +1,10 @@
 package com.maker.dao;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.maker.entity.Collection;
+import com.maker.mapper.impl.CollectionMapper;
 
 public class CollectionDao {
 	
@@ -24,17 +24,16 @@ public class CollectionDao {
 	
 	public List<Collection> getAll(int uid) throws Exception{
 		List<Collection> list = new ArrayList<Collection>();
-		Collection c = null;
 		try {
 			String sql = "select * from collection where u_id=?";
-			ResultSet rs = helper.executeQuery(sql, uid);
-			while(rs.next()){
+			list = helper.executeQuery(new CollectionMapper(), sql, uid);
+			/*while(rs.next()){
 				c = new Collection();
 				c.setId(rs.getInt("id"));
-				c.setUid(uid);
+				c.setUid(rs.getInt("u_id"));
 				c.setKnowledgeid(rs.getInt("knowledge_id"));
 				list.add(c);
-			}
+			}*/
 		} catch (Exception e) {
 			throw e;
 		}finally{

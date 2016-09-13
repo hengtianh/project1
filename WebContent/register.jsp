@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,7 +29,7 @@
           <tr>
             <td width="150" height="45" align="right">邮箱：</td>
             <td width="280" height="45"><label for="username"></label>
-              <input type="text" name="username" value="${requestScope.username}" onBlur="checkEmail();" id="username" class="textinput"></td>
+              <input type="text" name="username" value="${requestScope.username}" onBlur="checkEmail(); validateUser();" id="username" class="textinput"></td>
             <td width="280" height="45"><span id="emaillabel" style="color: red">${requestScope.msg }</span></td>
           </tr>
           <tr>

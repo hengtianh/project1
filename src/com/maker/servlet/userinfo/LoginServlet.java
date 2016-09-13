@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import com.maker.constant.Keys;
 import com.maker.entity.UserInfoEntity;
 import com.maker.service.UserInfoService;
+import com.maker.utils.MD5;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -37,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			session.removeAttribute("code");
 			try {
-				UserInfoEntity entity = service.getUserInfo(userName, userPass);
+				UserInfoEntity entity = service.getUserInfo(userName, MD5.createPassword(userPass));
 				if (entity != null) {
 					// 输入的用户名密码正确
 					session.setAttribute(Keys.USER, entity);

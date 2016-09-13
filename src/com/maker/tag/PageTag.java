@@ -10,7 +10,7 @@ public class PageTag extends TagSupport {
 	
 	private String actionName;
 	private int pageIndex = 1;
-	private String where;
+	private String where = null;
 	private int pageCount;
 	private int[] pages;
 	
@@ -21,7 +21,7 @@ public class PageTag extends TagSupport {
 		JspWriter out = pageContext.getOut();
 		String formAction = actionName;
 		String aAction = actionName;
-		if(where!=null){
+		if(where!=null && where.trim()!=""){
 			formAction += "?where="+where;
 		}
 		if(where!=null){

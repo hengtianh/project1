@@ -9,6 +9,8 @@ a{ text-decoration:none; font:14px gray 微软雅黑;}
 .f18white{ font:18px 微软雅黑; color:white;}
 .f14white{ font: 16px 微软雅黑; color:black;}
 .f24black{ font:24px 微软雅黑; color:white;}
+.f14black{ font:14px 微软雅黑; color:white; line-height:35px;}
+
 
 
 /*注册界面样式*/

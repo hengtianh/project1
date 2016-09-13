@@ -1,11 +1,17 @@
 package com.maker.dao;
 
 import java.sql.ResultSet;
+import java.util.List;
+
+import org.apache.log4j.Logger;
 
 import com.maker.entity.UserInfoEntity;
+import com.maker.mapper.impl.UserInfoMapper;
 
 public class UserInfoDao {
 	private DBHelper helper = new DBHelper();
+	Logger log = Logger.getLogger(this.getClass().getName());
+
 	
 	public int add(UserInfoEntity entity) throws Exception{
 		try{
@@ -21,10 +27,16 @@ public class UserInfoDao {
 	
 	public UserInfoEntity getUserInfo(String userName, String userPass) throws Exception{
 		UserInfoEntity entity = null;
+
 		try{
+			log.info("用户准备登陆");
 			String sql = "SELECT * FROM u_userinfo WHERE userName=? AND userPass=?";
-			ResultSet rs = helper.executeQuery(sql, userName, userPass);
-			if(rs.next()){
+			List<UserInfoEntity> list = helper.executeQuery(new UserInfoMapper(),sql, userName, userPass);
+			if(list.size()>0){
+				entity = list.get(0);
+			}
+			log.info("用户登录成功");
+			/*if(rs.next()){
 				entity = new UserInfoEntity();
 				entity.setId(rs.getInt("id"));
 				entity.setUserName(rs.getString("userName"));
@@ -32,8 +44,9 @@ public class UserInfoDao {
 				entity.setNickName(rs.getString("nickName"));
 				entity.setHeaderImage(rs.getString("headerImage"));
 				entity.setIntroduce(rs.getString("introduce"));
-			}
+			}*/
 		}catch(Exception e){
+			log.error("用户登录失败,原因是"+e.getMessage());
 			throw e;
 		}finally{
 			helper.release();
@@ -56,8 +69,12 @@ public class UserInfoDao {
 		UserInfoEntity entity = null;
 		try{
 			String sql = "SELECT * FROM u_userinfo WHERE userName=?";
-			ResultSet rs = helper.executeQuery(sql, userName);
-			if(rs.next()){
+			List<UserInfoEntity> list = helper.executeQuery(new UserInfoMapper(), sql, userName);
+			if(list.size()>0){
+				entity = list.get(0);
+			}
+			
+/*			if(rs.next()){
 				entity = new UserInfoEntity();
 				entity.setId(rs.getInt("id"));
 				entity.setUserName(rs.getString("userName"));
@@ -65,7 +82,7 @@ public class UserInfoDao {
 				entity.setNickName(rs.getString("nickName"));
 				entity.setHeaderImage(rs.getString("headerImage"));
 				entity.setIntroduce(rs.getString("introduce"));
-			}
+			}*/
 		}catch(Exception e){
 			throw e;
 		}finally{
@@ -78,8 +95,12 @@ public class UserInfoDao {
 		UserInfoEntity entity = null;
 		try {
 			String sql = "select * from u_userinfo where id=?";
-			ResultSet rs = helper.executeQuery(sql, uid);
-			if(rs.next()){
+			List<UserInfoEntity> list = helper.executeQuery(new UserInfoMapper(), sql, uid);
+			if(list.size()>0){
+				entity = list.get(0);
+			}
+			
+/*			if(rs.next()){
 				entity = new UserInfoEntity();
 				entity.setId(rs.getInt("id"));
 				entity.setUserName(rs.getString("userName"));
@@ -88,7 +109,7 @@ public class UserInfoDao {
 				entity.setHeaderImage(rs.getString("headerImage"));
 				entity.setIntroduce(rs.getString("introduce"));
 			}
-		} catch (Exception e) {
+*/		} catch (Exception e) {
 			throw e;
 		}finally{
 			helper.release();

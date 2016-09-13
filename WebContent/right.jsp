@@ -42,7 +42,8 @@
   </c:forEach>
   <tr>
   <td colspan="3">
-  <p:page actionName="PageServlet" pageIndex="${pages.pageIndex }" pageCount="${pages.pageCount }" pages="${pages.pages }" where="${where }"/>
+  
+  <p:page actionName="PageServlet" pageIndex="${pages.pageIndex }" pageCount="${pages.pageCount }" pages="${pages.pages }" where="${where}" />
   <%-- <form action="PageServlet<c:if test="${!empty where }">?where=${where}</c:if>" method="get">
 	  <table width="100%" align="center" cellspacing="0" cellpadding="0" style="margin:5px 0 5px 0;">
 	    <tr>

@@ -1,10 +1,14 @@
 package com.maker.service;
 
+import org.apache.log4j.Logger;
+
 import com.maker.dao.UserInfoDao;
 import com.maker.entity.UserInfoEntity;
 
 public class UserInfoService {
 	private UserInfoDao dao = new UserInfoDao();
+	
+	
 	public int add(UserInfoEntity entity) throws Exception{
 		return dao.add(entity);
 	}

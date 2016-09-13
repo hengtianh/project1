@@ -22,30 +22,22 @@ import com.maker.utils.PageUtils;
 @WebFilter("/indexfilter")
 public class IndexFilter implements Filter {
 
-    /**
-     * Default constructor. 
-     */
+   
     public IndexFilter() {
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see Filter#destroy()
-	 */
+	
 	public void destroy() {
-		// TODO Auto-generated method stub
 	}
 
-	/**
-	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-	 */
+	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 		//request.getRequestDispatcher("PageUtil").forward(request, response);
 		String tempIndex = request.getParameter("pageIndex");
 		String tempWhere = request.getParameter("where");
 		request.setAttribute("where", tempWhere);
-		if(tempWhere!=null){
+		if(tempWhere!=null && tempWhere.trim()!=""){
 			tempWhere = " where label like '"+tempWhere+"'";
 		}else{
 			tempWhere = null;

@@ -20,6 +20,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import com.maker.constant.Keys;
 import com.maker.entity.Attachment;
 import com.maker.entity.KnowledgeEntity;
+import com.maker.entity.OptionLogEntity;
 import com.maker.entity.UserInfoEntity;
 import com.maker.service.KnowledgeService;
 import com.maker.utils.FileUploadUtil;
@@ -44,8 +45,8 @@ public class AddKnowledgeServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
+//		request.setCharacterEncoding("utf-8");
+//		response.setCharacterEncoding("utf-8");
 		
 		
 		
@@ -98,6 +99,7 @@ public class AddKnowledgeServlet extends HttpServlet {
 		int uid = ((UserInfoEntity) session.getAttribute(Keys.USER)).getId();
 		
 		KnowledgeEntity keEntity = new KnowledgeEntity();
+		Date d = new Date();
 		keEntity.setTitle(title);
 		keEntity.setLabel(label);
 		keEntity.setContent(content.replace(" ", "&nbsp;").replace("\r\n", "<br />"));
@@ -107,13 +109,17 @@ public class AddKnowledgeServlet extends HttpServlet {
 		keEntity.setState(0);
 		keEntity.setStateDate(null);
 		keEntity.setStateUid(0);
-		keEntity.setPubDate(new Date());
+		keEntity.setPubDate(d);
 		keEntity.setReadCount(0);
 		keEntity.setCid(cid);
 		
+		OptionLogEntity optionLog = new OptionLogEntity();
+		optionLog.setOptionDate(d);
+		optionLog.setOptionDes("发表了知识："+title);
+		
 		KnowledgeService service = new KnowledgeService();
 		try {
-			service.add(keEntity);
+			service.add(keEntity,optionLog);
 			//更新附件标的信息
 			//获得当前知识的id
 			int kid = service.getKnowledgeId();

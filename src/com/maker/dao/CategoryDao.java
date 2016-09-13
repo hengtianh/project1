@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.maker.entity.Category;
+import com.maker.mapper.impl.CategoryMapper;
 
 public class CategoryDao {
 	DBHelper helper = new DBHelper();
@@ -28,14 +29,18 @@ public class CategoryDao {
 		Category category = null;
 		try {
 			String sql = "select * from k_category where id=?";
-			ResultSet rs = helper.executeQuery(sql, id);
-			if(rs.next()){
+			List<Category> list = helper.executeQuery(new CategoryMapper(), sql, id);
+			if(list.size()>0){
+				category = list.get(0);
+			}
+			
+			/*if(rs.next()){
 				category = new Category();
 				category.setId(rs.getInt("id"));
 				category.setName(rs.getString("name"));
 				category.setImg(rs.getString("img"));
 				category.setDescription(rs.getString("description"));
-			}
+			}*/
 		} catch (Exception e) {
 			throw e;
 		}finally{
@@ -48,15 +53,15 @@ public class CategoryDao {
 		List<Category> list = new ArrayList<Category>();
 		try{
 			String sql = "select * from k_category";
-			ResultSet rs = helper.executeQuery(sql);
-			while(rs.next()){
+			list = helper.executeQuery(new CategoryMapper() ,sql);
+			/*while(rs.next()){
 				Category c = new Category();
 				c.setId(rs.getInt("id"));
 				c.setName(rs.getString("name"));
 				c.setDescription(rs.getString("description"));
 				c.setImg(rs.getString("img"));
 				list.add(c);
-			}
+			}*/
 		}catch(Exception e){
 			throw e;
 		}finally{
