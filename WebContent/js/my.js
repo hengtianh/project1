@@ -21,6 +21,9 @@ function checkEmail(){
 
 function validateUser(){
 	var value = document.getElementById('username').value;
+	//alert(document.getElementById("loading"));
+	document.getElementById("loading").style.display="block";
+	//document.getElementById("loading").style.display="block";
 	//获得ajax核心对象
 	var req = new XMLHttpRequest();
 	//设置请求的方式和url
@@ -37,8 +40,9 @@ function validateUser(){
 }
 
 function HandleResp(req){
-	if(req.readyState==4){
+	if(req.readyState==4 && req.status==200){
 		var retValue = req.responseText;
+		document.getElementById("loading").style.display="none";
 		var msg = document.getElementById('emaillabel').innerHTML=retValue;
 	}
 }
@@ -147,6 +151,28 @@ function dosubmit(){
 		alert('请将信息填写完整');
 		
 		return false;
+	}
+}
+
+//加载评论ajax
+function loadComment(){
+	var id = document.getElementById("commentCount").getAttribute("value");
+	var req = new XMLHttpRequest();
+	req.onreadystatechange=function(){
+		setComment(req);
+	}
+	req.open("get", "LoadComment?know_id="+id);
+	req.send();
+}
+
+function setComment(req){
+	if(req.readyState==4 && req.status==200){
+		var value = req.responseText;
+		//解析响应的数据
+		//alert(value);
+		//设置数据到html
+		document.getElementById("image").style.display='none';
+		document.getElementById("commentCount").innerHTML=value;
 	}
 }
 

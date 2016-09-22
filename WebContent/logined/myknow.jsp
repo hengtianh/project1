@@ -19,7 +19,7 @@
     <td colspan="3" class="f14white">&nbsp;</td>
   </tr>
   <tr>
-    <td width="80" rowspan="2" align="center" bgcolor="#F3F3F3"><img src="headerimages/userdefault.gif" width="80" height="80"></td>
+    <td width="80" rowspan="2" align="center" bgcolor="#F3F3F3"><img src="${pageContext.request.contextPath}/headerimages/${sessionScope.user.headerImage}" width="80" height="80"></td>
     <td width="657" class="f14white"><a href="showdetail?id=${k.id }">　　${k.title }</a></td>
     <td width="78" align="center" class="f14white"><a href="loadknowledge?id=${k.id}">编辑</a></td>
     <td width="77" align="center" class="f14white"><a href="deleteknowledge?id=${k.id}" onclick="javascript:return confirm('确认要删除吗？')">删除</a></td>

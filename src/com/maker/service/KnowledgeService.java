@@ -7,6 +7,7 @@ import com.maker.dao.KnowledgeDao;
 import com.maker.dao.UserInfoDao;
 import com.maker.entity.Attachment;
 import com.maker.entity.Category;
+import com.maker.entity.Comments;
 import com.maker.entity.KnowledgeEntity;
 import com.maker.entity.OptionLogEntity;
 import com.maker.entity.UserInfoEntity;
@@ -119,6 +120,10 @@ public class KnowledgeService {
 
 	public void deleteAll(String ids) throws Exception {
 		dao.deleteAll(ids);
+	}
+
+	public void addComment(Comments c) throws Exception {
+		dao.addComment(c);
 	}
 	
 }

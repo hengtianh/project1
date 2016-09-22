@@ -33,7 +33,7 @@
     <td colspan="3" class="f14white">&nbsp;</td>
   </tr>
   <tr>
-    <td width="80" rowspan="2" align="center" bgcolor="#F3F3F3"><img src="headerimages/userdefault.gif" width="80" height="80"></td>
+    <td width="80" rowspan="2" align="center" bgcolor="#F3F3F3"><img src="${pageContext.request.contextPath}/headerimages/${k.entity.headerImage}" width="80" height="80"></td>
     <td width="657" class="f14white"><a href="showdetails?id=${k.id }">　　${k.title }</a></td>
   </tr>
   <tr>

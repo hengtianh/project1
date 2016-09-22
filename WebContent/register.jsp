@@ -30,7 +30,7 @@
             <td width="150" height="45" align="right">邮箱：</td>
             <td width="280" height="45"><label for="username"></label>
               <input type="text" name="username" value="${requestScope.username}" onBlur="checkEmail(); validateUser();" id="username" class="textinput"></td>
-            <td width="280" height="45"><span id="emaillabel" style="color: red">${requestScope.msg }</span></td>
+            <td width="280" height="45"><img src="images/loading.gif" style="display:none;" id="loading" /><span id="emaillabel" style="color: red">${requestScope.msg }</span></td>
           </tr>
           <tr>
             <td width="150" height="45" align="right">密码：</td>

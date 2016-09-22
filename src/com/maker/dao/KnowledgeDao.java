@@ -5,8 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.maker.entity.Attachment;
+import com.maker.entity.Comments;
 import com.maker.entity.KnowledgeEntity;
 import com.maker.entity.OptionLogEntity;
+import com.maker.mapper.IRowMapper;
+import com.maker.mapper.impl.CommentMapper;
 import com.maker.mapper.impl.KnowledgeRowMapper;
 import com.maker.utils.PageResult;
 
@@ -371,6 +374,34 @@ public class KnowledgeDao {
 		}finally{
 			helper.release();
 		}
+	}
+
+	public void addComment(Comments c) throws Exception {
+		try {
+			String sql = "insert into comments(id,know_id,comment,user_id) values(?,?,?,?)";
+			
+			Object []o = new Object[]{c.getId(),c.getKnow_id(),c.getComment(),c.getUser_id()};
+			helper.executeUpdate(sql,o);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}finally{
+			helper.release();
+		}
+	}
+
+	public List<Comments> getCommentById(int id) throws Exception {
+		List<Comments> list = new ArrayList<>();
+		try {
+			String sql = "select * from comments where know_id=?";
+			list = helper.executeQuery(new CommentMapper(), sql, id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}finally{
+			helper.release();
+		}
+		return list;
 	}
 
 }

@@ -38,11 +38,21 @@
 	    <td height="5" align="center" bgcolor="#CCCCCC"><hr></td>
 	  </tr>
 	  <tr>
-	    <td height="25" align="center" bgcolor="#CCCCCC"><a href="${pageContext.request.contextPath}/login/setting.jsp" class="f14white">个人设置</a></td>
+	    <td height="25" align="center" bgcolor="#CCCCCC"><a href="${pageContext.request.contextPath}/logined/setting.jsp" class="f14white">个人设置</a></td>
+	  </tr>
+	  
+	  <tr>
+	    <td height="5" align="center" bgcolor="#CCCCCC"><hr></td>
+	  </tr>
+	  <tr>
+	    <td height="25" align="center" bgcolor="#CCCCCC">
+	      <a href="${pageContext.request.contextPath}/logined/changeHeaderImage.jsp" class="f14white">更改头像</a>
+	    </td>
 	  </tr>
 	  <tr>
 	    <td height="5" align="center" bgcolor="#CCCCCC"><hr></td>
 	  </tr>
+	  
 	  <tr>
 	    <td height="25" align="center" bgcolor="#CCCCCC"><a href="${pageContext.request.contextPath}/loadcategory" class="f14white">发表知识</a></td>
 	  </tr>

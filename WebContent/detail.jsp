@@ -7,12 +7,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
-
+<script type="text/javascript" src="js/my.js"></script>
 <style>
 
 </style>
 </head>
-<body>
+<body onload="loadComment()">
 <div class="detail">
   <form name="form1" method="post" action="">
     <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -33,7 +33,10 @@
         <td colspan="4" bgcolor="#FFFFFF"><hr></td>
       </tr>
       <tr>
-        <td height="30" colspan="4" align="right" bgcolor="#FFFFFF">${requestScope.detail.pubDate } 阅读(${requestScope.detail.readCount}),评论(0) <a href="collection?id=${requestScope.detail.id }">收藏</a></td>
+        <td height="30" colspan="4" align="right" bgcolor="#FFFFFF">
+        	${requestScope.detail.pubDate } 阅读(${requestScope.detail.readCount}),
+        	<a href="${pageContext.request.contextPath}/addComment?id=${requestScope.detail.id }">评论</a>(<span id="commentCount" value="${requestScope.detail.id}"><img id="image" src="images/loading.gif" style="display:in-line;" /></span>) 
+        	<a href="collection?id=${requestScope.detail.id }">收藏</a></td>
       </tr>
       <tr>
         <td colspan="4" align="right" bgcolor="#FFFFFF"><hr></td>
