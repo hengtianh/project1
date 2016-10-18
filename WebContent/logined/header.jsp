@@ -18,7 +18,7 @@
       <c:if test="${sessionScope.user!=null }">
 	      <td width="120" align="center" class="f18white"><a href="${pageContext.request.contextPath}/showknowledge?id=${sessionScope.user.id}" class="f18white">我的知识库</a></td>
 	      <td width="120" align="center" class="f18white"><a href="${pageContext.request.contextPath }/showcollection" class="f18white">我的收藏</a></td>
-	      <td width="120" align="center" class="f18white"><a href="${pageContext.request.contextPath}/login/setting.jsp" class="f18white">个人设置</a></td>
+	      <td width="120" align="center" class="f18white"><a href="${pageContext.request.contextPath}/logined/setting.jsp" class="f18white">个人设置</a></td>
 	      <td width="80" align="center" class="f18white"><a href="logout" class="f18white">退出</a></td>
       </c:if>
      
